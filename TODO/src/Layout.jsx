@@ -10,7 +10,7 @@ function Layout() {
   // centralized fetch so it can be re-used after mutations
   const fetchTasks = async () => {
     try {
-      const res = await fetch(`${import.meta.env.VITE_REACT_APP_BACKEND_URL}/tasks`);
+      const res = await fetch(`${import.meta.env.VITE_BACKEND_URL}/tasks`);
       if (!res.ok) throw new Error('Failed to fetch tasks');
       const data = await res.json();
       setTasks(data);

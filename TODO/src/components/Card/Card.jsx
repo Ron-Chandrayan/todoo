@@ -6,7 +6,7 @@ function Card({ task, index }) {
   const { tasks, setTasks } = useOutletContext();
 
   const toggleIsDone = async () => {
-     const res = await fetch(`${import.meta.env.VITE_REACT_APP_BACKEND_URL}/update`, {
+     const res = await fetch(`${import.meta.env.VITE_BACKEND_URL}/update`, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(task)
@@ -24,7 +24,7 @@ function Card({ task, index }) {
   const deletetask = async ()=>{
   
     console.log(task.id);
-    const res = await fetch(`${import.meta.env.VITE_REACT_APP_BACKEND_URL}/delete`, {
+    const res = await fetch(`${import.meta.env.VITE_BACKEND_URL}/delete`, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(task)

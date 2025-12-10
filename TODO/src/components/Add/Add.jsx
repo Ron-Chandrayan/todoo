@@ -45,7 +45,7 @@ function Add() {
     };
 
     try {
-      const res = await fetch(`${import.meta.env.VITE_REACT_APP_BACKEND_URL}/tasks`, {
+      const res = await fetch(`${import.meta.env.VITE_BACKEND_URL}/tasks`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(payload),
