@@ -23,7 +23,7 @@ function Home() {
     }
 
     useEffect(()=>{
-      fetch("https://api.realinspire.live/v1/quotes/random").then(
+      fetch(`${import.meta.env.VITE_REACT_APP_MOTIV_URL}`).then(
         response=>response.json()
       ).then(data=>{
         console.log(data[0]);
@@ -96,7 +96,7 @@ function Home() {
         </p>
         <NavLink
         to="/tasks"
-        
+        fetch
         >View All tasks</NavLink>
       </div>
     </div>

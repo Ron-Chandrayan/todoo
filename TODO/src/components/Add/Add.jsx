@@ -1,10 +1,19 @@
 import React from 'react'
 import { useOutletContext } from 'react-router-dom'
 import Checkno from '../Checkno/Checkno'
+import { useEffect } from 'react';
 
 function Add() {
 
   const{tasks,setTasks,description,setDescription,deadline,setDeadline}=useOutletContext();
+
+     useEffect(() => {
+                    const timer = setInterval(() => {
+                      setTasks((prev) => [...prev]); // Triggers re-render
+                    }, 1000);
+          
+                    return () => clearInterval(timer);
+                  }, []);
 
 
 
@@ -36,7 +45,7 @@ function Add() {
     };
 
     try {
-      const res = await fetch('http://localhost:5000/tasks', {
+      const res = await fetch(`${import.meta.env.VITE_REACT_APP_BACKEND_URL}/tasks`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(payload),
